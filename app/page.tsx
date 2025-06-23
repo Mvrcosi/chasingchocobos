@@ -285,7 +285,7 @@ function Tooltip({ children }: { children: React.ReactNode }) {
 }
 
 // ---- NEW: CLAIM MODAL ----
-function ClaimModal({ card, onClose }) {
+function ClaimModal({ card, onClose }: { card: Card; onClose: () => void }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -405,10 +405,10 @@ function ClaimModal({ card, onClose }) {
 
 // ---- MAIN COMPONENT ----
 export default function Home() {
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [filter, setFilter] = useState("all");
-  const [hoveredBtn, setHoveredBtn] = useState(null);
-  const [claimCard, setClaimCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState<Card | null>(null);
+  const [filter, setFilter] = useState<"all" | CardStatus>("all");
+  const [hoveredBtn, setHoveredBtn] = useState<"all" | CardStatus | null>(null);
+  const [claimCard, setClaimCard] = useState<Card | null>(null);
 
   const foundCount = cardData.filter((c) => c.status !== "unseen").length;
   const percent = Math.round((foundCount / TOTAL_CARDS) * 100);
