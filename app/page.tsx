@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 // ---- Card Data ----
 const TOTAL_CARDS = 77;
@@ -518,7 +519,7 @@ export default function Home() {
               }}
               onClick={() => setSelectedCard(card)}
             >
-              <img
+              <Image
                 src="/backlayer.png"
                 alt={`Card ${card.id}`}
                 className={
@@ -527,8 +528,11 @@ export default function Home() {
                 }
                 draggable={false}
                 style={{ pointerEvents: "none" }}
+                width={360}
+                height={480}
+                priority
               />
-              <img
+              <Image
                 src="/toplayer.png"
                 alt=""
                 className={
@@ -537,7 +541,11 @@ export default function Home() {
                 }
                 style={{ mixBlendMode: "normal" }}
                 draggable={false}
+                width={360}
+                height={480}
+                priority
               />
+
               <span className="absolute inset-0 pointer-events-none bg-gradient-to-br from-yellow-200/60 via-yellow-400/30 to-transparent rounded-2xl mix-blend-screen"></span>
               <span className="absolute bottom-2 left-2 px-2 py-1 bg-black/60 text-yellow-200 text-xs rounded font-bold group-hover:bg-yellow-300 group-hover:text-black transition">
                 {String(card.id).padStart(2, "0")}/77
@@ -584,7 +592,7 @@ export default function Home() {
             style={{ maxHeight: "90vh" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <Image
               src="/backlayer.png"
               alt={`Card ${selectedCard.id}`}
               className={
@@ -594,8 +602,18 @@ export default function Home() {
                   : "")
               }
               draggable={false}
+              width={480}
+              height={660}
+              style={{
+                height: "55vh",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "1.5rem",
+                boxShadow: "0 10px 40px #0007",
+              }}
+              priority
             />
-            <img
+            <Image
               src="/toplayer.png"
               alt=""
               className={
@@ -604,9 +622,19 @@ export default function Home() {
                   ? " grayscale opacity-50 blur-[1px]"
                   : "")
               }
-              style={{ mixBlendMode: "normal" }}
+              style={{
+                mixBlendMode: "normal",
+                height: "55vh",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "1.5rem",
+              }}
               draggable={false}
+              width={480}
+              height={660}
+              priority
             />
+
             <div className="relative z-10 w-full p-6 pt-2 flex flex-col items-center text-center bg-black/70 rounded-b-3xl">
               <button
                 onClick={() => setSelectedCard(null)}
@@ -685,11 +713,12 @@ export default function Home() {
             Disclaimer:
           </strong>
           <span className="ml-2">
-            Fan project, not affiliated with Wizards, Hasbro, Square Enix, etc.
+            Fan project, not affiliated with Wizards, Hasbro, Square Enix, etc,
+            Final Fantasy, or any related IP.
             <br />
             <span className="text-yellow-300 font-bold">
-              Please don't sue me, I'm broke. Hire me instead—I'm a software
-              engineer with 3 years of experience.
+              Please don't sue me, I'm broke. Hire me instead —I'm a software
+              engineer with 3 years of Front-end experience.
             </span>
             <br />
             Instagram:{" "}
