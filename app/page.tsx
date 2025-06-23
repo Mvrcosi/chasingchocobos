@@ -717,7 +717,7 @@ export default function Home() {
             Final Fantasy, or any related IP.
             <br />
             <span className="text-yellow-300 font-bold">
-              Please don't sue me, I'm broke. Hire me instead —I'm a software
+              Please do not sue me, I am broke. Hire me instead —I aa software
               engineer with 3 years of Front-end experience.
             </span>
             <br />
